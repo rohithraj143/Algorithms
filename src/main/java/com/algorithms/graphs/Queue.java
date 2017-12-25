@@ -12,7 +12,7 @@ public class Queue {
         }
 
         Node temp = head;
-        while (temp.next != null) {
+        while (!contains(data) && temp.next != null) {
             temp = temp.next;
         }
         temp.next = node;
@@ -28,6 +28,16 @@ public class Queue {
         return temp;
     }
 
+    public boolean contains(int data) {
+        Node temp = head;
+        while(temp != null) {
+            if(temp.data == data) {
+                return true;
+            }
+            temp =temp.next;
+        }
+        return false;
+    }
     public boolean isEmpty() {
         return head == null;
     }
